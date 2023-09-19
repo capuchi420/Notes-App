@@ -22,7 +22,8 @@ export default function Note(props) {
       }
     }
     document.cookie = `note=; expires=20 Jun 1999 00:00:00 UTC;`;
-    document.cookie = `note=${newCookie}; expires=20 Jun 9999 00:00:00 UTC;`
+    document.cookie = `note=${newCookie}; expires=20 Jun 9999 00:00:00 UTC;`;
+    window.location.reload();
   }
 
   return (

@@ -6,8 +6,12 @@ export const App = () => {
     const [x, setX] = useState([]);
 
     useEffect(() => {
-        setX(document.cookie.slice(5, document.cookie.length).split('='));
-    }, [document.cookie]);
+        if(document.cookie.slice(5, document.cookie.length).split('=')[0] === ''){
+            setX([]);
+        }else{
+            setX(document.cookie.slice(5, document.cookie.length).split('='));
+        }
+    }, []);
 
     console.log(x)
 
@@ -17,9 +21,13 @@ export const App = () => {
 
         let inputValue = document.querySelector("input").value;
         document.querySelector("input").value = "";
-        
-        document.cookie += `note=${inputValue}; expires=20 Jun 9999 00:00:00 UTC;`;
-    
+
+        if(document.cookie.slice(5, document.cookie.length).split('=')[0] === ''){
+            document.cookie = `note=${inputValue}; expires=20 Jun 9999 00:00:00 UTC;`;
+        }else{
+            document.cookie += `=${inputValue}; expires=20 Jun 9999 00:00:00 UTC;`;
+        }
+
         setX(document.cookie.slice(5, document.cookie.length).split('='));
     }
 
