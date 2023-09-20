@@ -36,6 +36,8 @@ export default function Note(props) {
         }else{
           newCookie += `${x[i]}=`;
         }
+      }else{
+        newCookie = newCookie.slice(0, newCookie.length - 1);
       }
       /*if(i === x.length - 1){
         newCookie = newCookie.slice(0, newCookie.length - 1);
