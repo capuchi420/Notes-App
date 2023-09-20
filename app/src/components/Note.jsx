@@ -15,9 +15,9 @@ export default function Note(props) {
           newCookie += `${x[i]}=`;
         }
       }
-      if(i === x.length - 1){
+      /*if(i === x.length - 1){
         newCookie = newCookie.slice(0, newCookie.length - 1);
-      }
+      }*/
     }
     document.cookie = `note=; expires=20 Jun 1999 00:00:00 UTC;`;
     document.cookie = `note=${newCookie}; expires=20 Jun 9999 00:00:00 UTC;`;
